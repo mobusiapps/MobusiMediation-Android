@@ -16,7 +16,7 @@ repositories {
 ```java
 dependencies {
     compile(name: 'mobusimediation-base-{version}', ext:' ;aar')
-    compile(name: 'MobusiSDK-{lastMobusiSDKVersion}.aar', ext: 'aar')
+    compile(name: 'MobusiSDK-{lastMobusiSDKVersion}', ext: 'aar')
     compile(name: 'mobusimediation-mediation-1001-{version}', ext: 'aar')
     compile(name: 'mobusimediation-mediation-1002-{version}', ext: 'aar')
     compile(name: 'mobusimediation-mediation-1005-{version}', ext: 'aar')
