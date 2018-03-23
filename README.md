@@ -3,6 +3,9 @@ Mobusi Mediation Android SDK
 The current version has been tested using API 21, 23, 25 and 26 and require a minSdkVersion >= 15
 
 ### Importing to your project
+
+First of all, add the content in the libs folder to your project libs folder
+
 **Add to build.gradle:**
 
 ```java
