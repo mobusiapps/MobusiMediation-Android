@@ -49,7 +49,7 @@ sourceSets {
 
 ### Usage
 
-Initialize:
+Initialize at the begining of your app only one time:
 
 ```java
 MobusiMediation.INSTANCE.init(context, appId);
@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   private void initMobusiMediationLayer() {
     MobusiMediation.INSTANCE.setAutoFetch(true);
     MobusiMediation.INSTANCE.setLogging(true);
+    //Notice that this method add a new listener, so don't add the same listener more than once
     MobusiMediation.INSTANCE.addListener(new MobusiMediationListener() {
       @Override public void onInit(boolean state) {
 
