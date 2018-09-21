@@ -30,6 +30,7 @@ dependencies {
     compile(name: 'mobusimediation-mediation-1009-1.14.5', ext: 'aar')
     compile(name: 'mobusimediation-mediation-1012-1.14.5', ext: 'aar')
     compile(name: 'mobusimediation-mediation-1013-1.14.5', ext: 'aar')
+    compile(name: 'mobusimediation-mediation-1017-1.14.5', ext: 'aar')
     compile(name: 'AudienceNetwork', ext: 'aar')
     compile 'com.google.android.gms:play-services-ads:+'
     compile "com.android.support:design:+"
