@@ -18,19 +18,17 @@ repositories {
 }
 
 dependencies {
-    compile(name: 'mobusimediation-base-1.14.5', ext:'aar')
-    compile(name: 'MobusiSDK-3.0.0', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1001-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1002-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1003-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1004-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1005-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1007-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1008-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1009-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1012-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1013-1.14.5', ext: 'aar')
-    compile(name: 'mobusimediation-mediation-1017-1.14.5', ext: 'aar')
+    compile(name: 'labcavemediation-base-2.1.2', ext:'aar')
+    compile(name: 'labcavemediation-mediation-1002-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1003-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1004-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1005-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1007-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1008-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1009-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1012-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1013-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1017-2.1.2', ext: 'aar')
     compile(name: 'AudienceNetwork', ext: 'aar')
     compile 'com.google.android.gms:play-services-ads:+'
     compile "com.android.support:design:+"
@@ -48,22 +46,21 @@ sourceSets {
 
 Once you have added all files and gradle lines it's time to initialize the sdk. Important you must initialize the sdk and the begining of the execution of your app and only once.
 
-```java
-MobusiMediation.INSTANCE.init(context, appHash);
-```
-
-The appHash is the hash of your app, your manager will give you this info, "context" is your activity context.
-
-When you init the sdk then you can request ads. Important the mediation sdk auto fetch all ads for you, when you call the init method also will fecth the first ads, so you only need to call the showMethods:
 
 ```java
-MobusiMediation.INSTANCE.showBanner(context, tag);
-MobusiMediation.INSTANCE.showBanner(mobusiBannerView, tag);
-
-MobusiMediation.INSTANCE.showInterstitial(context, tag);
-MobusiMediation.INSTANCE.showRewardedVideo(context, tag);
+LabCaveMediation.INSTANCE.init(this, APP_HASH);
 ```
+The appHash is the hash of your app, you can get it in https://mediation.labcavegames.com/panel/apps, "context" is your activity context.
 
+When you init the sdk then you can request ads. Important the mediation sdk auto fetch all ads for you, when you call the init method also will fecth the first ads, so you only need to call the showMethods. Display ads with the corresponding action according to the type desired:
+
+```java
+LabCaveMediation.INSTANCE.showBanner(context, tag);
+LabCaveMediation.INSTANCE.showBanner(labcaveBannerView, tag);
+
+LabCaveMediation.INSTANCE.showInterstitial(context, tag);
+LabCaveMediation.INSTANCE.showRewardedVideo(context, tag);
+```
 You must pass the conext of your activity and a string where the ad will be shown "main-menu", "options"... also can be an empty string.
 
 If Banner ads are used, it is recommended to pause/resume ads with the onPause/onResume
@@ -72,15 +69,14 @@ method:
 ```java
 @Override protected void onPause() {
     super.onPause();
-    MobusiMediation.INSTANCE.pause();
+    LabCaveMediation.INSTANCE.pause();
 }
 
 @Override protected void onResume() {
     super.onResume();
-    MobusiMediation.INSTANCE.resume();
+    LabCaveMediation.INSTANCE.resume();
 }
 ```
-
 ### Advance integration
 
 The sdk offers a delegate where you can receive the events of the ads. Important the the method "addListener"
@@ -88,11 +84,11 @@ add a new listener, so check you don't add the same listener more than once. The
 
 ```java
 
- MobusiMediation.INSTANCE.removeListener(@NonNull MobusiMediationListener listener);
+ LabCaveMediation.INSTANCE.removeListener(@NonNull LabCaveMediationListener listener);
 
- MobusiMediation.INSTANCE.clearListener();
+ LabCaveMediation.INSTANCE.clearListener();
 
- MobusiMediation.INSTANCE.addListener(new MobusiMediationListener() {
+ LabCaveMediation.INSTANCE.addListener(new LabCaveMediationListener() {
       // When the sdk is already initialized, if everything is ok, state will be true.
       @Override public void onInit(boolean state) {
 
@@ -124,10 +120,11 @@ add a new listener, so check you don't add the same listener more than once. The
     });
 ```
 
+
 You can enable loggin to check what is happening
 
 ```java
-MobusiMediation.INSTANCE.setLogging(true);
+LabCaveMediation.INSTANCE.setLogging(true);
 ```
 
 If you use proguard add these rules:
@@ -139,7 +136,7 @@ If you use proguard add these rules:
 -keep class com.google.android.gms.** { *; }
 -keep class com.google.android.ads.** { *; }
 -keep class com.vungle.** { *; }
--keep public class com.mobusi.** { *; }
+-keep public class com.labcave.** { *; }
 -keep class com.tapdaq.** { *; }
 -keep class com.nerd.** { *; }
 -keepclassmembers class * { @android.webkit.JavascriptInterface <methods>; }
@@ -178,137 +175,6 @@ If you use proguard add these rules:
 -dontwarn com.moat.**
 -keep class com.moat.** { public protected private *; }
 ```
-
-
-### Example
-
-```java
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-  private static final String APP_ID = "insert app id here";
-
-  private MobusiMediationBannerView bannerView;
-  private final Handler UIHandler = new Handler(Looper.getMainLooper());
-
-  private Button showBanner;
-  private Button showInterstitial;
-  private Button showRewarded;
-  private Button showVideo;
-
-  @Override protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-
-    bannerView = findViewById(R.id.banner);
-
-    Button showTest = findViewById(R.id.showTest);
-    showBanner = findViewById(R.id.showBanner);
-    showInterstitial = findViewById(R.id.showInterstitial);
-    showRewarded = findViewById(R.id.showRewarded);
-    showVideo = findViewById(R.id.showVideo);
-
-    showTest.setOnClickListener(this);
-    showBanner.setOnClickListener(this);
-    showInterstitial.setOnClickListener(this);
-    showRewarded.setOnClickListener(this);
-    showVideo.setOnClickListener(this);
-
-    initMobusiMediationLayer();
-  }
-
-  private void initMobusiMediationLayer() {
-    MobusiMediation.INSTANCE.setAutoFetch(true);
-    MobusiMediation.INSTANCE.setLogging(true);
-    //Notice that this method add a new listener, so don't add the same listener more than once
-    MobusiMediation.INSTANCE.addListener(new MobusiMediationListener() {
-      @Override public void onInit(boolean state) {
-
-      }
-
-      @Override public void onMediationTypeLoad(final MediationType type) {
-        UIHandler.post(new Runnable() {
-          @Override public void run() {
-            switch (type) {
-              case BANNER:
-                showBanner.setVisibility(View.VISIBLE);
-                break;
-
-              case INTERSTITIAL:
-                showInterstitial.setVisibility(View.VISIBLE);
-                break;
-
-              case REWARDED_VIDEO:
-                showRewarded.setVisibility(View.VISIBLE);
-                break;
-
-              case VIDEO:
-                showVideo.setVisibility(View.VISIBLE);
-                break;
-            }
-          }
-        });
-      }
-
-      @Override public void onClose(MediationType type, String name, String extra) {
-
-      }
-
-      @Override public void onClick(MediationType type, String name, String extra) {
-
-      }
-
-      @Override public void onError(String description, MediationType type, String extra) {
-
-      }
-
-      @Override public void onShow(MediationType type, String name, String extra, Info info) {
-
-      }
-
-      @Override public void onReward(@NonNull MediationType type, @NonNull String name, @NonNull String extra) {
-
-      }
-    });
-
-    MobusiMediation.INSTANCE.init(this, APP_ID);
-  }
-
-  @Override protected void onPause() {
-    super.onPause();
-    MobusiMediation.INSTANCE.pause();
-  }
-
-  @Override protected void onResume() {
-    super.onResume();
-    MobusiMediation.INSTANCE.resume();
-  }
-
-  @Override public void onClick(View v) {
-    switch (v.getId()) {
-      case R.id.showTest:
-        MobusiMediation.INSTANCE.initTest(this, APP_ID);
-        break;
-
-      case R.id.showBanner:
-        MobusiMediation.INSTANCE.showBanner(bannerView, "banner");
-        break;
-
-      case R.id.showInterstitial:
-        MobusiMediation.INSTANCE.showInterstitial(MainActivity.this, "inter");
-        break;
-
-      case R.id.showRewarded:
-        MobusiMediation.INSTANCE.showRewardedVideo(MainActivity.this, "rewarded");
-        break;
-
-      case R.id.showVideo:
-        MobusiMediation.INSTANCE.showVideo(MainActivity.this, "video");
-        break;
-    }
-  }
-}
-```
-
 
 # FAQ
 
