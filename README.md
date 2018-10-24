@@ -18,17 +18,17 @@ repositories {
 }
 
 dependencies {
-    compile(name: 'labcavemediation-base-2.1.2', ext:'aar')
-    compile(name: 'labcavemediation-mediation-1002-2.1.2', ext: 'aar')
-    compile(name: 'labcavemediation-mediation-1003-2.1.2', ext: 'aar')
-    compile(name: 'labcavemediation-mediation-1004-2.1.2', ext: 'aar')
-    compile(name: 'labcavemediation-mediation-1005-2.1.2', ext: 'aar')
-    compile(name: 'labcavemediation-mediation-1007-2.1.2', ext: 'aar')
-    compile(name: 'labcavemediation-mediation-1008-2.1.2', ext: 'aar')
-    compile(name: 'labcavemediation-mediation-1009-2.1.2', ext: 'aar')
-    compile(name: 'labcavemediation-mediation-1012-2.1.2', ext: 'aar')
-    compile(name: 'labcavemediation-mediation-1013-2.1.2', ext: 'aar')
-    compile(name: 'labcavemediation-mediation-1017-2.1.2', ext: 'aar')
+    compile(name: 'labcavemediation-base-2.1.3', ext:'aar')
+    compile(name: 'labcavemediation-mediation-1002-2.1.3', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1003-2.1.3', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1004-2.1.3', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1005-2.1.3', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1007-2.1.3', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1008-2.1.3', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1009-2.1.3', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1012-2.1.3', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1013-2.1.3', ext: 'aar')
+    compile(name: 'labcavemediation-mediation-1017-2.1.3', ext: 'aar')
     compile(name: 'AudienceNetwork', ext: 'aar')
     compile 'com.google.android.gms:play-services-ads:+'
     compile "com.android.support:design:+"
