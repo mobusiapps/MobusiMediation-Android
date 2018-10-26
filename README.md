@@ -33,6 +33,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:+'
     compile "com.android.support:design:+"
     compile 'com.android.support:multidex:1.0.2'
+    compile 'com.google.android.ads.consent:consent-library:1.0.6'
 }
 
 sourceSets {
